@@ -30,6 +30,7 @@ namespace problem
             panel1.Hide();
             webView22.Hide();
             panel2.Hide();
+            panel3.Hide();
         }
 
         private void testButton_Click(object sender, EventArgs e)
@@ -179,6 +180,13 @@ namespace problem
                 MessageBox.Show("Progress complete!");
                 Application.Exit();
             }
+            else if (this.progressBar1.Value == 25)
+            {
+                panel3.BringToFront();
+                panel3.Show();
+                MessageBox.Show("Viruses detected");
+                this.progressBar1.Increment(1);
+            }
             else if (this.progressBar1.Value == 50)
             {
                 this.progressBar1.Increment(1);
@@ -186,7 +194,7 @@ namespace problem
                 panel2.Show();
                 MessageBox.Show("Halfway there!");
             }
-            else 
+            else
             {
                 this.progressBar1.Increment(1);
             }
