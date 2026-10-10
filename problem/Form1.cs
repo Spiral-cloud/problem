@@ -13,6 +13,7 @@ namespace problem
     public partial class Form1 : Form
     {
         public int counter = 0;
+        public int webViewCounter = 0;
 
         public Form1()
         {
@@ -27,6 +28,7 @@ namespace problem
             progressBar1.Hide();
             webView21.Hide();
             panel1.Hide();
+            webView22.Hide();
         }
 
         private void testButton_Click(object sender, EventArgs e)
@@ -123,10 +125,21 @@ namespace problem
         {
              if (this.progressBar1.Value == this.progressBar1.Maximum)
             {
-                webView21.Show();
-                webView21.BringToFront();
-                webView21.CoreWebView2.Navigate("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
-               adButton.Hide();
+                if (webViewCounter % 2 == 0)
+                {
+                    webView21.Show();
+                    webView21.BringToFront();
+                    webView21.CoreWebView2.Navigate("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+                    webViewCounter++;
+                }
+                else 
+                {
+                    webView22.Show();
+                    webView22.BringToFront();
+                    webView22.CoreWebView2.Navigate("https://downloadmoreram.com");
+                    webViewCounter++;
+                }
+                adButton.Hide();
                 this.timer2.Stop();
                 timer2.Enabled = false;
                 progressBar1.Value = 0;

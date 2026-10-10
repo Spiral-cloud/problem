@@ -40,8 +40,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.testButton = new System.Windows.Forms.Button();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.webView22 = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.webView22)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
@@ -79,6 +81,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Gold;
+            this.panel1.Controls.Add(this.webView22);
             this.panel1.Controls.Add(this.webView21);
             this.panel1.Controls.Add(this.adButton);
             this.panel1.Controls.Add(this.Quit);
@@ -150,6 +153,18 @@
             // 
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
+            // webView22
+            // 
+            this.webView22.AllowExternalDrop = true;
+            this.webView22.CreationProperties = null;
+            this.webView22.DefaultBackgroundColor = System.Drawing.Color.White;
+            this.webView22.Location = new System.Drawing.Point(59, 39);
+            this.webView22.Name = "webView22";
+            this.webView22.Size = new System.Drawing.Size(455, 322);
+            this.webView22.Source = new System.Uri("https://downloadmoreram.com/", System.UriKind.Absolute);
+            this.webView22.TabIndex = 5;
+            this.webView22.ZoomFactor = 1D;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -166,6 +181,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.webView22)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -184,6 +200,7 @@
         private Microsoft.Web.WebView2.WinForms.WebView2 webView21;
         private System.Windows.Forms.Button testButton;
         private System.Windows.Forms.Timer timer2;
+        private Microsoft.Web.WebView2.WinForms.WebView2 webView22;
     }
 }
 
