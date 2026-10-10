@@ -22,6 +22,7 @@ namespace problem
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            webView21.Hide();
             panel1.Hide();
         }
 
@@ -89,6 +90,14 @@ namespace problem
             timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
 
+        }
+
+        private void adButton_Click(object sender, EventArgs e)
+        {
+            webView21.Show();
+            webView21.BringToFront();
+            webView21.CoreWebView2.Navigate("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+            // webBrowser1.Document.InvokeScript("play", null);
         }
     }
 }

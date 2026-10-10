@@ -37,7 +37,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.Quit = new System.Windows.Forms.Button();
+            this.adButton = new System.Windows.Forms.Button();
+            this.webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
@@ -85,6 +88,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.panel1.Controls.Add(this.webView21);
+            this.panel1.Controls.Add(this.adButton);
             this.panel1.Controls.Add(this.Quit);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(91, 39);
@@ -114,6 +119,29 @@
             this.Quit.UseVisualStyleBackColor = false;
             this.Quit.Click += new System.EventHandler(this.Quit_Click);
             // 
+            // adButton
+            // 
+            this.adButton.BackColor = System.Drawing.Color.Green;
+            this.adButton.Location = new System.Drawing.Point(252, 236);
+            this.adButton.Name = "adButton";
+            this.adButton.Size = new System.Drawing.Size(75, 23);
+            this.adButton.TabIndex = 3;
+            this.adButton.Text = "Click to buy";
+            this.adButton.UseVisualStyleBackColor = false;
+            this.adButton.Click += new System.EventHandler(this.adButton_Click);
+            // 
+            // webView21
+            // 
+            this.webView21.AllowExternalDrop = true;
+            this.webView21.CreationProperties = null;
+            this.webView21.DefaultBackgroundColor = System.Drawing.Color.White;
+            this.webView21.Location = new System.Drawing.Point(3, 32);
+            this.webView21.Name = "webView21";
+            this.webView21.Size = new System.Drawing.Size(571, 367);
+            this.webView21.Source = new System.Uri("https://www.youtube.com/watch?v=dQw4w9WgXcQ", System.UriKind.Absolute);
+            this.webView21.TabIndex = 4;
+            this.webView21.ZoomFactor = 1D;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -129,6 +157,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.webView21)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -144,6 +173,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button Quit;
+        private System.Windows.Forms.Button adButton;
+        private Microsoft.Web.WebView2.WinForms.WebView2 webView21;
     }
 }
 
