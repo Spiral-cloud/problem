@@ -29,13 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Timer timer1;
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.Text1 = new System.Windows.Forms.TextBox();
             this.testButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
             // 
             // Text1
             // 
@@ -69,15 +72,11 @@
             // progressBar1
             // 
             this.progressBar1.ForeColor = System.Drawing.Color.Chartreuse;
-            this.progressBar1.Location = new System.Drawing.Point(121, 169);
+            this.progressBar1.Location = new System.Drawing.Point(141, 244);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(399, 121);
             this.progressBar1.TabIndex = 3;
             this.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
-            // 
-            // timer1
-            // 
-            timer1.Enabled = true;
             // 
             // Form1
             // 
@@ -102,6 +101,7 @@
         private System.Windows.Forms.Button testButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

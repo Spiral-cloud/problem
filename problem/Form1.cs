@@ -12,6 +12,7 @@ namespace problem
 {
     public partial class Form1 : Form
     {
+
         public Form1()
         {
             InitializeComponent();
@@ -24,6 +25,9 @@ namespace problem
 
         private void testButton_Click(object sender, EventArgs e)
         {
+            label1.Text = "Button Clicked!";
+            progressBar1.Value = 0;
+            timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
         }
 
@@ -38,7 +42,17 @@ namespace problem
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
-            this.progressBar1.Increment(1);
+            if (this.progressBar1.Value == this.progressBar1.Maximum)
+            {
+                progressBar1.Value = 0;
+                this.timer1.Stop();
+                timer1.Enabled = false;
+                MessageBox.Show("Progress complete!");
+            }
+            else 
+            {
+                this.progressBar1.Increment(1);
+            }
         }
     }
 }
