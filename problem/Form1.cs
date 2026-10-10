@@ -29,6 +29,7 @@ namespace problem
             webView21.Hide();
             panel1.Hide();
             webView22.Hide();
+            panel2.Hide();
         }
 
         private void testButton_Click(object sender, EventArgs e)
@@ -38,9 +39,9 @@ namespace problem
             progressBar1.Value = 0;
             timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-           
+
         }
-        
+
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -53,7 +54,7 @@ namespace problem
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (this.progressBar1.Value == this.progressBar1.Maximum && counter %2 == 0)
+            if (this.progressBar1.Value == this.progressBar1.Maximum && counter % 2 == 0)
             {
                 testButton.Hide();
                 panel1.Show();
@@ -64,7 +65,7 @@ namespace problem
                 progressBar1.SendToBack();
                 counter++;
                 MessageBox.Show("Progress complete!");
-                
+
             }
             else if (this.progressBar1.Value == this.progressBar1.Maximum)
             {
@@ -123,7 +124,7 @@ namespace problem
 
         private void timer2_Tick(object sender, EventArgs e)
         {
-             if (this.progressBar1.Value == this.progressBar1.Maximum)
+            if (this.progressBar1.Value == this.progressBar1.Maximum)
             {
                 if (webViewCounter % 2 == 0)
                 {
@@ -132,7 +133,7 @@ namespace problem
                     webView21.CoreWebView2.Navigate("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
                     webViewCounter++;
                 }
-                else 
+                else
                 {
                     webView22.Show();
                     webView22.BringToFront();
@@ -153,8 +154,47 @@ namespace problem
             }
             else
             {
-               this.progressBar1.Increment(1);
+                this.progressBar1.Increment(1);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            progressBar1.Show();
+            progressBar1.BringToFront();
+            timer3.Enabled = true;
+            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
+        }
+
+        private void timer3_Tick(object sender, EventArgs e)
+        {
+            if (this.progressBar1.Value == this.progressBar1.Maximum)
+            {
+
+                adButton.Hide();
+                this.timer2.Stop();
+                timer2.Enabled = false;
+                progressBar1.Value = 0;
+                progressBar1.SendToBack();
+                MessageBox.Show("Progress complete!");
+                Application.Exit();
+            }
+            else if (this.progressBar1.Value == 50)
+            {
+                this.progressBar1.Increment(1);
+                panel2.BringToFront();
+                panel2.Show();
+                MessageBox.Show("Halfway there!");
+            }
+            else 
+            {
+                this.progressBar1.Increment(1);
+            }
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
