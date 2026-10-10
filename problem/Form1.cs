@@ -55,6 +55,7 @@ namespace problem
             {
                 testButton.Hide();
                 panel1.Show();
+                adButton.Show();
                 progressBar1.Value = 0;
                 this.timer1.Stop();
                 timer1.Enabled = false;
@@ -65,6 +66,7 @@ namespace problem
             }
             else if (this.progressBar1.Value == this.progressBar1.Maximum)
             {
+                adButton.Show();
                 testButton.Show();
                 panel1.Hide();
                 this.timer1.Stop();
@@ -101,15 +103,45 @@ namespace problem
 
         private void adButton_Click(object sender, EventArgs e)
         {
-            webView21.Show();
-            webView21.BringToFront();
-            webView21.CoreWebView2.Navigate("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+            progressBar1.Show();
+            progressBar1.BringToFront();
+            timer2.Enabled = true;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            //webView21.Show();
+            //webView21.BringToFront();
+            // webView21.CoreWebView2.Navigate("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+            //adButton.Hide();
             // webBrowser1.Document.InvokeScript("play", null);
         }
 
         private void Text1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+             if (this.progressBar1.Value == this.progressBar1.Maximum)
+            {
+                webView21.Show();
+                webView21.BringToFront();
+                webView21.CoreWebView2.Navigate("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+               adButton.Hide();
+                this.timer2.Stop();
+                timer2.Enabled = false;
+                progressBar1.Value = 0;
+                progressBar1.SendToBack();
+                MessageBox.Show("Progress complete!");
+            }
+            else if (this.progressBar1.Value == 50)
+            {
+                this.progressBar1.Increment(1);
+                MessageBox.Show("Halfway there!");
+            }
+            else
+            {
+               this.progressBar1.Increment(1);
+            }
         }
     }
 }

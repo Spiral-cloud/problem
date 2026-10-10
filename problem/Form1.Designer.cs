@@ -39,6 +39,7 @@
             this.Quit = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.testButton = new System.Windows.Forms.Button();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
             this.SuspendLayout();
@@ -77,7 +78,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.panel1.BackColor = System.Drawing.Color.Gold;
             this.panel1.Controls.Add(this.webView21);
             this.panel1.Controls.Add(this.adButton);
             this.panel1.Controls.Add(this.Quit);
@@ -94,7 +95,7 @@
             this.webView21.AllowExternalDrop = true;
             this.webView21.CreationProperties = null;
             this.webView21.DefaultBackgroundColor = System.Drawing.Color.White;
-            this.webView21.Location = new System.Drawing.Point(73, 45);
+            this.webView21.Location = new System.Drawing.Point(59, 39);
             this.webView21.Name = "webView21";
             this.webView21.Size = new System.Drawing.Size(455, 322);
             this.webView21.Source = new System.Uri("https://www.youtube.com/watch?v=dQw4w9WgXcQ", System.UriKind.Absolute);
@@ -104,9 +105,10 @@
             // adButton
             // 
             this.adButton.BackColor = System.Drawing.Color.Green;
-            this.adButton.Location = new System.Drawing.Point(252, 236);
+            this.adButton.Font = new System.Drawing.Font("Impact", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.adButton.Location = new System.Drawing.Point(151, 140);
             this.adButton.Name = "adButton";
-            this.adButton.Size = new System.Drawing.Size(75, 23);
+            this.adButton.Size = new System.Drawing.Size(266, 102);
             this.adButton.TabIndex = 3;
             this.adButton.Text = "Click to buy";
             this.adButton.UseVisualStyleBackColor = false;
@@ -126,9 +128,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(268, 173);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(235, 66);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 13);
+            this.label2.Size = new System.Drawing.Size(113, 25);
             this.label2.TabIndex = 0;
             this.label2.Text = "BUY NOW";
             // 
@@ -142,6 +145,10 @@
             this.testButton.Text = "Play advert";
             this.testButton.UseVisualStyleBackColor = true;
             this.testButton.Click += new System.EventHandler(this.testButton_Click);
+            // 
+            // timer2
+            // 
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // Form1
             // 
@@ -176,6 +183,7 @@
         private System.Windows.Forms.Button adButton;
         private Microsoft.Web.WebView2.WinForms.WebView2 webView21;
         private System.Windows.Forms.Button testButton;
+        private System.Windows.Forms.Timer timer2;
     }
 }
 
