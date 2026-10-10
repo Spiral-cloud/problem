@@ -22,12 +22,16 @@ namespace problem
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            testButton.BringToFront();
+            testButton.Show();
+            progressBar1.Hide();
             webView21.Hide();
             panel1.Hide();
         }
 
         private void testButton_Click(object sender, EventArgs e)
         {
+            progressBar1.Show();
             label1.Text = "";
             progressBar1.Value = 0;
             timer1.Enabled = true;
@@ -47,14 +51,14 @@ namespace problem
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
-            testButton.Hide();
             if (this.progressBar1.Value == this.progressBar1.Maximum && counter %2 == 0)
             {
-                testButton.Show();
+                testButton.Hide();
                 panel1.Show();
                 progressBar1.Value = 0;
                 this.timer1.Stop();
                 timer1.Enabled = false;
+                progressBar1.SendToBack();
                 counter++;
                 MessageBox.Show("Progress complete!");
                 
@@ -65,7 +69,9 @@ namespace problem
                 panel1.Hide();
                 this.timer1.Stop();
                 timer1.Enabled = false;
+                counter++;
                 progressBar1.Value = 0;
+                progressBar1.SendToBack();
                 MessageBox.Show("Progress complete!");
             }
             else if (this.progressBar1.Value == 50)
@@ -87,6 +93,7 @@ namespace problem
         private void Quit_Click(object sender, EventArgs e)
         {
             progressBar1.BringToFront();
+            webView21.Hide();
             timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
 
@@ -98,6 +105,11 @@ namespace problem
             webView21.BringToFront();
             webView21.CoreWebView2.Navigate("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
             // webBrowser1.Document.InvokeScript("play", null);
+        }
+
+        private void Text1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
